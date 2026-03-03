@@ -19,12 +19,12 @@
             "type": "project",
             "extra": {
                 "laravel": {
-                    "providers": [
-                        "AKCybex\\JazzCash\\AKJazzCashServiceProvider"
-                    ],
                     "aliases": {
                         "JazzCash": "AKCybex\\JazzCash\\Facades\\JazzCash"
-                    }
+                    },
+                    "providers": [
+                        "AKCybex\\JazzCash\\AKJazzCashServiceProvider"
+                    ]
                 }
             },
             "installation-source": "dist",
@@ -154,12 +154,12 @@
             "type": "library",
             "extra": {
                 "laravel": {
-                    "providers": [
-                        "Anand\\LaravelPaytmWallet\\PaytmWalletServiceProvider"
-                    ],
                     "aliases": {
                         "PaytmWallet": "Anand\\LaravelPaytmWallet\\Facades\\PaytmWallet"
-                    }
+                    },
+                    "providers": [
+                        "Anand\\LaravelPaytmWallet\\PaytmWalletServiceProvider"
+                    ]
                 }
             },
             "installation-source": "dist",
@@ -543,12 +543,12 @@
             "version_normalized": "3.16.0.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/barryvdh/laravel-debugbar.git",
+                "url": "https://github.com/fruitcake/laravel-debugbar.git",
                 "reference": "f265cf5e38577d42311f1a90d619bcd3740bea23"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/barryvdh/laravel-debugbar/zipball/f265cf5e38577d42311f1a90d619bcd3740bea23",
+                "url": "https://api.github.com/repos/fruitcake/laravel-debugbar/zipball/f265cf5e38577d42311f1a90d619bcd3740bea23",
                 "reference": "f265cf5e38577d42311f1a90d619bcd3740bea23",
                 "shasum": ""
             },
@@ -610,8 +610,8 @@
                 "webprofiler"
             ],
             "support": {
-                "issues": "https://github.com/barryvdh/laravel-debugbar/issues",
-                "source": "https://github.com/barryvdh/laravel-debugbar/tree/v3.16.0"
+                "issues": "https://github.com/fruitcake/laravel-debugbar/issues",
+                "source": "https://github.com/fruitcake/laravel-debugbar/tree/v3.16.0"
             },
             "funding": [
                 {
@@ -654,17 +654,17 @@
             "time": "2024-04-25T13:16:04+00:00",
             "type": "library",
             "extra": {
-                "branch-alias": {
-                    "dev-master": "2.0-dev"
-                },
                 "laravel": {
+                    "aliases": {
+                        "PDF": "Barryvdh\\DomPDF\\Facade\\Pdf",
+                        "Pdf": "Barryvdh\\DomPDF\\Facade\\Pdf"
+                    },
                     "providers": [
                         "Barryvdh\\DomPDF\\ServiceProvider"
-                    ],
-                    "aliases": {
-                        "Pdf": "Barryvdh\\DomPDF\\Facade\\Pdf",
-                        "PDF": "Barryvdh\\DomPDF\\Facade\\Pdf"
-                    }
+                    ]
+                },
+                "branch-alias": {
+                    "dev-master": "2.0-dev"
                 }
             },
             "installation-source": "dist",
@@ -1316,12 +1316,12 @@
             "type": "library",
             "extra": {
                 "laravel": {
-                    "providers": [
-                        "Mccarlosen\\LaravelMpdf\\LaravelMpdfServiceProvider"
-                    ],
                     "aliases": {
                         "PDF": "Mccarlosen\\LaravelMpdf\\Facades\\LaravelMpdf"
-                    }
+                    },
+                    "providers": [
+                        "Mccarlosen\\LaravelMpdf\\LaravelMpdfServiceProvider"
+                    ]
                 }
             },
             "installation-source": "dist",
@@ -3295,12 +3295,12 @@
             "type": "library",
             "extra": {
                 "laravel": {
-                    "providers": [
-                        "Gizemsever\\LaravelPaytr\\PaytrServiceProvider"
-                    ],
                     "aliases": {
                         "Paytr": "Gizemsever\\LaravelPaytr\\PaytrFacade"
-                    }
+                    },
+                    "providers": [
+                        "Gizemsever\\LaravelPaytr\\PaytrServiceProvider"
+                    ]
                 }
             },
             "installation-source": "dist",
@@ -3556,9 +3556,9 @@
             "extra": {
                 "component": {
                     "id": "cloud-core",
-                    "target": "googleapis/google-cloud-php-core.git",
                     "path": "Core",
-                    "entry": "src/ServiceBuilder.php"
+                    "entry": "src/ServiceBuilder.php",
+                    "target": "googleapis/google-cloud-php-core.git"
                 }
             },
             "installation-source": "dist",
@@ -4777,16 +4777,16 @@
             "time": "2022-05-21T17:30:32+00:00",
             "type": "library",
             "extra": {
-                "branch-alias": {
-                    "dev-master": "2.4-dev"
-                },
                 "laravel": {
-                    "providers": [
-                        "Intervention\\Image\\ImageServiceProvider"
-                    ],
                     "aliases": {
                         "Image": "Intervention\\Image\\Facades\\Image"
-                    }
+                    },
+                    "providers": [
+                        "Intervention\\Image\\ImageServiceProvider"
+                    ]
+                },
+                "branch-alias": {
+                    "dev-master": "2.4-dev"
                 }
             },
             "installation-source": "dist",
@@ -5102,16 +5102,16 @@
             "time": "2020-06-13T08:05:20+00:00",
             "type": "library",
             "extra": {
-                "branch-alias": {
-                    "dev-master": "3.0-dev"
-                },
                 "laravel": {
-                    "providers": [
-                        "Jenssegers\\Agent\\AgentServiceProvider"
-                    ],
                     "aliases": {
                         "Agent": "Jenssegers\\Agent\\Facades\\Agent"
-                    }
+                    },
+                    "providers": [
+                        "Jenssegers\\Agent\\AgentServiceProvider"
+                    ]
+                },
+                "branch-alias": {
+                    "dev-master": "3.0-dev"
                 }
             },
             "installation-source": "dist",
@@ -5271,12 +5271,12 @@
             "type": "library",
             "extra": {
                 "laravel": {
-                    "providers": [
-                        "Jorenvh\\Share\\Providers\\ShareServiceProvider"
-                    ],
                     "aliases": {
                         "Share": "Jorenvh\\Share\\ShareFacade"
-                    }
+                    },
+                    "providers": [
+                        "Jorenvh\\Share\\Providers\\ShareServiceProvider"
+                    ]
                 }
             },
             "installation-source": "dist",
@@ -5334,12 +5334,12 @@
             "type": "library",
             "extra": {
                 "laravel": {
-                    "providers": [
-                        "Jubaer\\Zoom\\ZoomServiceProvider"
-                    ],
                     "aliases": {
                         "Zoom": "Jubaer\\Zoom\\Facades\\Zoom"
-                    }
+                    },
+                    "providers": [
+                        "Jubaer\\Zoom\\ZoomServiceProvider"
+                    ]
                 }
             },
             "installation-source": "dist",
@@ -5395,12 +5395,12 @@
             "type": "laravel-package",
             "extra": {
                 "laravel": {
-                    "providers": [
-                        "Kavenegar\\Laravel\\ServiceProvider"
-                    ],
                     "aliases": {
                         "Kavenegar": "Kavenegar\\Laravel\\Facade"
-                    }
+                    },
+                    "providers": [
+                        "Kavenegar\\Laravel\\ServiceProvider"
+                    ]
                 }
             },
             "installation-source": "dist",
@@ -5487,12 +5487,12 @@
             "version_normalized": "7.10.0.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/kreait/firebase-php.git",
+                "url": "https://github.com/beste/firebase-php.git",
                 "reference": "a0e50e4db4f14aa070b45dfda6bb2678b1e24d66"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/kreait/firebase-php/zipball/a0e50e4db4f14aa070b45dfda6bb2678b1e24d66",
+                "url": "https://api.github.com/repos/beste/firebase-php/zipball/a0e50e4db4f14aa070b45dfda6bb2678b1e24d66",
                 "reference": "a0e50e4db4f14aa070b45dfda6bb2678b1e24d66",
                 "shasum": ""
             },
@@ -5588,12 +5588,12 @@
             "version_normalized": "4.3.0.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/kreait/firebase-tokens-php.git",
+                "url": "https://github.com/beste/firebase-tokens-php.git",
                 "reference": "e5a4f09d6fd5b976263e1f3418a4c19bce254ffa"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/kreait/firebase-tokens-php/zipball/e5a4f09d6fd5b976263e1f3418a4c19bce254ffa",
+                "url": "https://api.github.com/repos/beste/firebase-tokens-php/zipball/e5a4f09d6fd5b976263e1f3418a4c19bce254ffa",
                 "reference": "e5a4f09d6fd5b976263e1f3418a4c19bce254ffa",
                 "shasum": ""
             },
@@ -5650,8 +5650,8 @@
                 "token"
             ],
             "support": {
-                "issues": "https://github.com/kreait/firebase-tokens-php/issues",
-                "source": "https://github.com/kreait/firebase-tokens-php/tree/4.3.0"
+                "issues": "https://github.com/beste/firebase-tokens-php/issues",
+                "source": "https://github.com/beste/firebase-tokens-php/tree/4.3.0"
             },
             "funding": [
                 {
@@ -5667,12 +5667,12 @@
             "version_normalized": "5.8.0.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/kreait/laravel-firebase.git",
+                "url": "https://github.com/beste/laravel-firebase.git",
                 "reference": "a028cb6ad58c534f763fca03e7dcc392074631da"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/kreait/laravel-firebase/zipball/a028cb6ad58c534f763fca03e7dcc392074631da",
+                "url": "https://api.github.com/repos/beste/laravel-firebase/zipball/a028cb6ad58c534f763fca03e7dcc392074631da",
                 "reference": "a028cb6ad58c534f763fca03e7dcc392074631da",
                 "shasum": ""
             },
@@ -5692,12 +5692,12 @@
             "type": "library",
             "extra": {
                 "laravel": {
-                    "providers": [
-                        "Kreait\\Laravel\\Firebase\\ServiceProvider"
-                    ],
                     "aliases": {
                         "Firebase": "Kreait\\Laravel\\Firebase\\Facades\\Firebase"
-                    }
+                    },
+                    "providers": [
+                        "Kreait\\Laravel\\Firebase\\ServiceProvider"
+                    ]
                 }
             },
             "installation-source": "dist",
@@ -5727,13 +5727,17 @@
                 "sdk"
             ],
             "support": {
-                "issues": "https://github.com/kreait/laravel-firebase/issues",
-                "source": "https://github.com/kreait/laravel-firebase/tree/5.8.0"
+                "issues": "https://github.com/beste/laravel-firebase/issues",
+                "source": "https://github.com/beste/laravel-firebase/tree/5.8.0"
             },
             "funding": [
                 {
                     "url": "https://github.com/jeromegamez",
                     "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/kreait/laravel-firebase",
+                    "type": "tidelift"
                 }
             ],
             "install-path": "../kreait/laravel-firebase"
@@ -6252,13 +6256,13 @@
             "time": "2023-12-19T18:44:48+00:00",
             "type": "library",
             "extra": {
-                "branch-alias": {
-                    "dev-master": "3.x-dev"
-                },
                 "laravel": {
                     "providers": [
                         "Laravel\\Sanctum\\SanctumServiceProvider"
                     ]
+                },
+                "branch-alias": {
+                    "dev-master": "3.x-dev"
                 }
             },
             "installation-source": "dist",
@@ -7607,27 +7611,27 @@
             "time": "2024-06-24T16:22:00+00:00",
             "type": "library",
             "extra": {
-                "hooks": {
-                    "pre-commit": [
-                        "tools/php-cs-fixer fix --dry-run --allow-risky=yes"
-                    ],
-                    "pre-push": [
-                        "tools/phpunit --testsuite=\"BigBlueButton unit test suite,BigBlueButton integration test suite\"",
-                        "tools/psalm --threads=1"
-                    ],
-                    "post-merge": "composer install",
-                    "post-checkout": "composer install"
-                },
                 "cotor": {
-                    "brainmaestro/composer-git-hooks": "^2.8",
                     "extensions": {
                         "phpunit/phpunit": {
                             "fakerphp/faker": "1.20.*"
                         }
                     },
-                    "friendsofphp/php-cs-fixer": "^3.3",
+                    "vimeo/psalm": "^4.22",
                     "phpunit/phpunit": "^9",
-                    "vimeo/psalm": "^4.22"
+                    "friendsofphp/php-cs-fixer": "^3.3",
+                    "brainmaestro/composer-git-hooks": "^2.8"
+                },
+                "hooks": {
+                    "pre-push": [
+                        "tools/phpunit --testsuite=\"BigBlueButton unit test suite,BigBlueButton integration test suite\"",
+                        "tools/psalm --threads=1"
+                    ],
+                    "post-merge": "composer install",
+                    "pre-commit": [
+                        "tools/php-cs-fixer fix --dry-run --allow-risky=yes"
+                    ],
+                    "post-checkout": "composer install"
                 }
             },
             "installation-source": "dist",
@@ -8190,12 +8194,12 @@
             "type": "package",
             "extra": {
                 "laravel": {
-                    "providers": [
-                        "Mews\\Captcha\\CaptchaServiceProvider"
-                    ],
                     "aliases": {
                         "Captcha": "Mews\\Captcha\\Facades\\Captcha"
-                    }
+                    },
+                    "providers": [
+                        "Mews\\Captcha\\CaptchaServiceProvider"
+                    ]
                 }
             },
             "installation-source": "dist",
@@ -8601,12 +8605,12 @@
             "type": "library",
             "extra": {
                 "laravel": {
-                    "providers": [
-                        "MoemenGaballah\\Msegat\\MsegatServiceProvider"
-                    ],
                     "aliases": {
                         "Msegat": "MoemenGaballah\\Msegat\\Msegat"
-                    }
+                    },
+                    "providers": [
+                        "MoemenGaballah\\Msegat\\MsegatServiceProvider"
+                    ]
                 }
             },
             "installation-source": "dist",
@@ -9622,13 +9626,13 @@
             "time": "2023-01-03T12:54:54+00:00",
             "type": "library",
             "extra": {
-                "branch-alias": {
-                    "dev-develop": "6.x-dev"
-                },
                 "laravel": {
                     "providers": [
                         "NunoMaduro\\Collision\\Adapters\\Laravel\\CollisionServiceProvider"
                     ]
+                },
+                "branch-alias": {
+                    "dev-develop": "6.x-dev"
                 }
             },
             "installation-source": "dist",
@@ -10226,13 +10230,13 @@
             "type": "library",
             "extra": {
                 "hooks": {
-                    "pre-commit": [
-                        "composer test",
-                        "composer fix-style"
-                    ],
                     "pre-push": [
                         "composer test",
                         "composer check-style"
+                    ],
+                    "pre-commit": [
+                        "composer test",
+                        "composer fix-style"
                     ]
                 }
             },
@@ -13273,13 +13277,13 @@
             "type": "package",
             "extra": {
                 "laravel": {
+                    "aliases": {
+                        "LaravelPayku": "SebaCarrasco93\\LaravelPayku\\Facades\\LaravelPayku"
+                    },
                     "providers": [
                         "SebaCarrasco93\\LaravelPayku\\LaravelPaykuServiceProvider",
                         "SebaCarrasco93\\LaravelPayku\\RouteServiceProvider"
-                    ],
-                    "aliases": {
-                        "LaravelPayku": "SebaCarrasco93\\LaravelPayku\\Facades\\LaravelPayku"
-                    }
+                    ]
                 }
             },
             "installation-source": "dist",
@@ -14528,12 +14532,12 @@
             "type": "library",
             "extra": {
                 "laravel": {
-                    "providers": [
-                        "SimpleSoftwareIO\\QrCode\\QrCodeServiceProvider"
-                    ],
                     "aliases": {
                         "QrCode": "SimpleSoftwareIO\\QrCode\\Facades\\QrCode"
-                    }
+                    },
+                    "providers": [
+                        "SimpleSoftwareIO\\QrCode\\QrCodeServiceProvider"
+                    ]
                 }
             },
             "installation-source": "dist",
@@ -15051,12 +15055,12 @@
             "type": "library",
             "extra": {
                 "laravel": {
-                    "providers": [
-                        "Spatie\\LaravelIgnition\\IgnitionServiceProvider"
-                    ],
                     "aliases": {
                         "Flare": "Spatie\\LaravelIgnition\\Facades\\Flare"
-                    }
+                    },
+                    "providers": [
+                        "Spatie\\LaravelIgnition\\IgnitionServiceProvider"
+                    ]
                 }
             },
             "installation-source": "dist",
@@ -15317,30 +15321,30 @@
         },
         {
             "name": "stijnvanouplines/blade-country-flags",
-            "version": "1.0.8",
-            "version_normalized": "1.0.8.0",
+            "version": "1.0.9",
+            "version_normalized": "1.0.9.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/stijnvanouplines/blade-country-flags.git",
-                "reference": "2d296a38733391458dc0699dc637d657b0508a70"
+                "reference": "06b53f8ae58238c30a5eaa35fd199ffd772a83f8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/stijnvanouplines/blade-country-flags/zipball/2d296a38733391458dc0699dc637d657b0508a70",
-                "reference": "2d296a38733391458dc0699dc637d657b0508a70",
+                "url": "https://api.github.com/repos/stijnvanouplines/blade-country-flags/zipball/06b53f8ae58238c30a5eaa35fd199ffd772a83f8",
+                "reference": "06b53f8ae58238c30a5eaa35fd199ffd772a83f8",
                 "shasum": ""
             },
             "require": {
                 "blade-ui-kit/blade-icons": "^1.0",
-                "illuminate/support": "^8.0|^9.0|^10.0|^11.0|^12.0",
+                "illuminate/support": "^8.0|^9.0|^10.0|^11.0|^12.0|^13.0",
                 "php": "^7.4|^8.0"
             },
             "require-dev": {
-                "orchestra/testbench": "^6.18|^8.0|^9.0|^10.0",
-                "pestphp/pest": "^1.4|^2.34|^3.0",
+                "orchestra/testbench": "^6.18|^8.0|^9.0|^10.0|^11.0",
+                "pestphp/pest": "^1.4|^2.34|^3.0|^4.4",
                 "spatie/pest-plugin-snapshots": "^1.0|^2.1"
             },
-            "time": "2026-02-13T08:21:15+00:00",
+            "time": "2026-03-03T13:15:47+00:00",
             "type": "library",
             "extra": {
                 "laravel": {
@@ -15368,7 +15372,7 @@
             ],
             "support": {
                 "issues": "https://github.com/stijnvanouplines/blade-country-flags/issues",
-                "source": "https://github.com/stijnvanouplines/blade-country-flags/tree/1.0.8"
+                "source": "https://github.com/stijnvanouplines/blade-country-flags/tree/1.0.9"
             },
             "install-path": "../stijnvanouplines/blade-country-flags"
         },
@@ -18854,12 +18858,12 @@
             "type": "library",
             "extra": {
                 "laravel": {
-                    "providers": [
-                        "Tzsk\\Payu\\PayuServiceProvider"
-                    ],
                     "aliases": {
                         "Payu": "Tzsk\\Payu\\Facades\\Payu"
-                    }
+                    },
+                    "providers": [
+                        "Tzsk\\Payu\\PayuServiceProvider"
+                    ]
                 }
             },
             "installation-source": "dist",
@@ -18941,12 +18945,12 @@
             "type": "library",
             "extra": {
                 "laravel": {
-                    "providers": [
-                        "Unicodeveloper\\Paystack\\PaystackServiceProvider"
-                    ],
                     "aliases": {
                         "Paystack": "Unicodeveloper\\Paystack\\Facades\\Paystack"
-                    }
+                    },
+                    "providers": [
+                        "Unicodeveloper\\Paystack\\PaystackServiceProvider"
+                    ]
                 }
             },
             "installation-source": "dist",
@@ -19032,10 +19036,10 @@
             "type": "library",
             "extra": {
                 "laravel": {
+                    "aliases": [],
                     "providers": [
                         "UniSharp\\LaravelFilemanager\\LaravelFilemanagerServiceProvider"
-                    ],
-                    "aliases": []
+                    ]
                 }
             },
             "installation-source": "dist",
@@ -19572,12 +19576,12 @@
             "type": "library",
             "extra": {
                 "laravel": {
-                    "providers": [
-                        "Vrajroham\\LaravelBitpay\\LaravelBitpayServiceProvider"
-                    ],
                     "aliases": {
                         "LaravelBitpay": "Vrajroham\\LaravelBitpay\\LaravelBitpayFacade"
-                    }
+                    },
+                    "providers": [
+                        "Vrajroham\\LaravelBitpay\\LaravelBitpayServiceProvider"
+                    ]
                 }
             },
             "installation-source": "dist",
