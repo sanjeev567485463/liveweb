@@ -1,0 +1,15 @@
+<?php return array (
+  'maximum_64_characters' => 'अधिकतम 64 अक्षर',
+  'maximum_255_characters' => 'अधिकतम 255 अक्षर',
+  'maximum_128_characters' => 'अधिकतम 128 अक्षर',
+  '50_160_characters_preferred' => 'पसंदीदा लंबाई: 155 - 160 अक्षर',
+  'maximum_50_characters' => 'अधिकतम 50 अक्षर',
+  'course_thumbnail_size' => 'पसंदीदा आकार: 360x250px',
+  'course_cover_size' => 'पसंदीदा आकार: 1920x530px',
+  'max' => 'अधिकतम',
+  'capacity_placeholder' => 'आप कितने छात्रों की मेजबानी करने की योजना बना रहे हैं?',
+  'subscribe_hint' => 'छात्र सीधी खरीदारी के अलावा आपकी सामग्री की सदस्यता भी ले सकते हैं।',
+  'webinar_description_placeholder' => 'न्यूनतम 300 शब्द आवश्यक। HTML और छवियाँ समर्थित हैं.',
+  'empty_means_unlimited' => 'असीमित के लिए खाली छोड़ें.',
+  'webinar_summary_placeholder' => 'पाठ्यक्रम सामग्री का संक्षिप्त सारांश, आदर्श रूप से 50 और 160 वर्णों के बीच।',
+);
