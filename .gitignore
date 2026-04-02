@@ -1,19 +1,15 @@
-/node_modules
-/public/hot
-/public/storage
-/public/store/*
-/public/debug_paytabs.log
-!/public/store/.htaccess
-/storage/*.key
-/vendor
-/.idea
-/.vscode
-
-/storage/framework/laravel-excel
-
+# Secrets - never track these
 .env
 .env.backup
 firebase-auth.json
+
+# IDE
+/.idea
+/.vscode
+
+# Misc
+/public/hot
+/public/debug_paytabs.log
 .phpunit.result.cache
 Homestead.json
 Homestead.yaml
