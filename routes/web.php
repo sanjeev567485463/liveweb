@@ -68,7 +68,7 @@ Route::get('/emergencyDatabaseUpdate', function () {
         'migrations' => $msg1,
         'sections' => $msg2,
     ]);
-});
+})->middleware('admin');
 
 Route::group(['namespace' => 'Auth', 'middleware' => ['check_mobile_app', 'share', 'check_maintenance', 'check_restriction']], function () {
     Route::get('/login', 'LoginController@showLoginForm');

@@ -24,8 +24,27 @@ use Illuminate\Support\Str;
 
 class CronJobsController extends Controller
 {
+    private static $allowedMethods = [
+        'sendSessionsReminder',
+        'sendMeetingsReminder',
+        'sendMeetingPackageReminders',
+        'renewSubscriptions',
+        'reminderBeforeExpirationSubscribes',
+        'sendSubscribeReminder',
+        'sendInstallmentReminders',
+        'checkGiftsDate',
+        'sendAbandonedCartReminders',
+        'clearAbandonedCartItems',
+        'sendAttendanceNotifications',
+        'sendEventsReminders',
+    ];
+
     public function index(Request $request, $methodName)
     {
+        if (!in_array($methodName, self::$allowedMethods)) {
+            abort(404);
+        }
+
         return $this->$methodName($request);
     }
 
