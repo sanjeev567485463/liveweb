@@ -1,21 +1,18 @@
-#/node_modules
-#/public/hot
-#/public/storage
-#/public/store/*
-#/public/debug_paytabs.log
-#!/public/store/.htaccess
-#/storage/*.key
-#/vendor
-#/.idea
-#/.vscode
+# Secrets - never track these
+.env
+.env.backup
+firebase-auth.json
 
-#/storage/framework/laravel-excel
+# IDE
+/.idea
+/.vscode
 
-#.env.backup
-#.phpunit.result.cache
-#Homestead.json
-#Homestead.yaml
-#npm-debug.log
-#yarn-error.log
-#composer.lock
-#storage/debugbar/.gitignore
+# Misc
+/public/hot
+/public/debug_paytabs.log
+.phpunit.result.cache
+Homestead.json
+Homestead.yaml
+npm-debug.log
+yarn-error.log
+storage/debugbar/.gitignore
