@@ -1,0 +1,42 @@
+# Laravel Project Setup & Fixes Log
+
+## 1. PHP Installation
+- PHP 8.1.34 installed using winget (required by Laravel 9).
+
+## 2. MySQL Installation & Setup
+- MySQL 8.4.8 installed using winget.
+- MySQL service start issues fixed by initializing data directory and starting service.
+- Root password set as: Pass@3264
+
+## 3. Database Preparation
+- Created new database: `rocketlms`
+- Created MySQL user: `rocketuser` with password `Pass@3264`
+- Granted all privileges on `rocketlms` to `rocketuser`
+- Updated Laravel `.env` file with new DB credentials:
+  - DB_DATABASE=rocketlms
+  - DB_USERNAME=rocketuser
+  - DB_PASSWORD=Pass@3264
+- Dropped and recreated the database for a clean import.
+- Imported provided SQL file: `empty_db.sql` into `rocketlms`.
+
+## 4. Composer & Dependencies
+- Composer installed locally via official installer script.
+- Ran `composer install` to fetch all PHP dependencies.
+
+## 5. Laravel Project Checks
+- Ran `php artisan migrate` (initially failed due to missing tables, fixed by importing SQL).
+- Ran `php artisan serve` to start the Laravel development server.
+- Verified server is running without errors.
+- Checked for PHP/Laravel errors—none found.
+
+## 6. Troubleshooting & Fixes
+- Fixed MySQL service/data directory issues (permissions, initialization).
+- Fixed database connection issues by updating `.env` and creating user/database.
+- Imported clean database as per user request.
+
+---
+
+**Summary:**
+- Project dependencies, PHP, and MySQL successfully installed and configured.
+- Database imported and Laravel project running without errors.
+- All steps and fixes documented for future reference.
