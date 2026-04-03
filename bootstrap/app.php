@@ -1,5 +1,21 @@
 <?php
 
+$basePath = $_ENV['APP_BASE_PATH'] ?? dirname(__DIR__);
+
+foreach ([
+    $basePath.'/bootstrap/cache',
+    $basePath.'/storage/app',
+    $basePath.'/storage/framework/cache',
+    $basePath.'/storage/framework/cache/data',
+    $basePath.'/storage/framework/sessions',
+    $basePath.'/storage/framework/views',
+    $basePath.'/storage/logs',
+] as $directory) {
+    if (! is_dir($directory)) {
+        mkdir($directory, 0755, true);
+    }
+}
+
 /*
 |--------------------------------------------------------------------------
 | Create The Application
@@ -11,9 +27,7 @@
 |
 */
 
-$app = new Illuminate\Foundation\Application(
-    $_ENV['APP_BASE_PATH'] ?? dirname(__DIR__)
-);
+$app = new Illuminate\Foundation\Application($basePath);
 
 /*
 |--------------------------------------------------------------------------
