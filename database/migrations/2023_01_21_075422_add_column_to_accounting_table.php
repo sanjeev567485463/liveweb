@@ -14,9 +14,17 @@ class AddColumnToAccountingTable extends Migration
     public function up()
     {
         Schema::table('accounting', function (Blueprint $table) {
-            $table->boolean('is_registration_bonus')->after('is_affiliate_commission')->default(false);
-            $table->integer('order_item_id')->after('creator_id')->unsigned()->nullable();
-            $table->boolean('is_cashback')->default(false)->after('is_registration_bonus');
+            if (!Schema::hasColumn('accounting', 'is_registration_bonus')) {
+                $table->boolean('is_registration_bonus')->after('is_affiliate_commission')->default(false);
+            }
+
+            if (!Schema::hasColumn('accounting', 'order_item_id')) {
+                $table->integer('order_item_id')->after('creator_id')->unsigned()->nullable();
+            }
+
+            if (!Schema::hasColumn('accounting', 'is_cashback')) {
+                $table->boolean('is_cashback')->default(false)->after('is_registration_bonus');
+            }
         });
     }
 }
