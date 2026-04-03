@@ -47,29 +47,6 @@ Route::group(['prefix' => 'captcha'], function () {
     Route::get('{config?}', '\Mews\Captcha\CaptchaController@getCaptcha');
 });
 
-
-/* Emergency Database Update */
-Route::get('/emergencyDatabaseUpdate', function () {
-    \Illuminate\Support\Facades\Artisan::call('migrate', [
-        '--force' => true
-    ]);
-    $msg1 = \Illuminate\Support\Facades\Artisan::output();
-
-    \Illuminate\Support\Facades\Artisan::call('db:seed', [
-        '--force' => true
-    ]);
-    $msg2 = \Illuminate\Support\Facades\Artisan::output();
-
-    \Illuminate\Support\Facades\Artisan::call('clear:all', [
-        '--force' => true
-    ]);
-
-    return response()->json([
-        'migrations' => $msg1,
-        'sections' => $msg2,
-    ]);
-});
-
 Route::group(['namespace' => 'Auth', 'middleware' => ['check_mobile_app', 'share', 'check_maintenance', 'check_restriction']], function () {
     Route::get('/login', 'LoginController@showLoginForm');
     Route::post('/login', 'LoginController@login');
@@ -343,12 +320,6 @@ Route::group(['namespace' => 'Web', 'middleware' => ['check_mobile_app', 'impers
 
     Route::post('/newsletters', 'UserController@makeNewsletter');
 
-    /* Cron Jobs Routes */
-    Route::group(['prefix' => 'cron-jobs'], function () {
-        Route::get('/{methodName}', 'CronJobsController@index');
-        Route::post('/{methodName}', 'CronJobsController@index');
-    });
-
     Route::group(['prefix' => 'regions'], function () {
         Route::get('/countries', 'RegionController@allCountries');
         Route::get('/provincesByCountry/{countryId}', 'RegionController@provincesByCountry');
@@ -526,4 +497,3 @@ Route::group(['namespace' => 'Web', 'middleware' => ['check_mobile_app', 'impers
 // Purchase Code Routes
 Route::get('/purchase-code', [PurchaseCodeController::class, 'show'])->name('purchase.code.show');
 Route::post('/purchase-code', [PurchaseCodeController::class, 'store'])->name('purchase.code.store');
-
