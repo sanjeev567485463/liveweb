@@ -20,6 +20,15 @@ class HomeController extends Controller
 
             $homeLanding = $activeTheme->homeLanding;
 
+            if (empty($homeLanding) || $homeLanding->components->isEmpty()) {
+                Log::warning('Homepage fallback triggered because no home landing/components were found.', [
+                    'theme_id' => $activeTheme->id ?? null,
+                    'home_landing_id' => $activeTheme->home_landing_id ?? null,
+                ]);
+
+                return redirect('/login');
+            }
+
             $seoSettings = getSeoMetas('home');
             $pageTitle = !empty($seoSettings['title']) ? $seoSettings['title'] : trans('home.home_title');
             $pageDescription = !empty($seoSettings['description']) ? $seoSettings['description'] : trans('home.home_title');
