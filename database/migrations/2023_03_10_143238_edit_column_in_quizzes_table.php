@@ -15,7 +15,9 @@ class EditColumnInQuizzesTable extends Migration
     public function up()
     {
         Schema::table('quizzes', function (Blueprint $table) {
-            DB::statement("ALTER TABLE `quizzes` DROP COLUMN `webinar_title`");
+            if (Schema::hasColumn('quizzes', 'webinar_title')) {
+                DB::statement("ALTER TABLE `quizzes` DROP COLUMN `webinar_title`");
+            }
         });
     }
 

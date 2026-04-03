@@ -14,10 +14,27 @@ class EditWebinarsTable extends Migration
     public function up()
     {
         Schema::table('webinars', function (Blueprint $table) {
-            DB::statement('ALTER TABLE `webinars` DROP COLUMN `start_time`,DROP COLUMN `end_time`');
+            if (Schema::hasColumn('webinars', 'start_time') || Schema::hasColumn('webinars', 'end_time')) {
+                $dropColumns = [];
 
-            $table->integer('duration')->after('start_date')->unsigned();
-            $table->boolean('downloadable')->after('support')->default(false);
+                if (Schema::hasColumn('webinars', 'start_time')) {
+                    $dropColumns[] = 'DROP COLUMN `start_time`';
+                }
+
+                if (Schema::hasColumn('webinars', 'end_time')) {
+                    $dropColumns[] = 'DROP COLUMN `end_time`';
+                }
+
+                DB::statement('ALTER TABLE `webinars` ' . implode(',', $dropColumns));
+            }
+
+            if (!Schema::hasColumn('webinars', 'duration')) {
+                $table->integer('duration')->after('start_date')->unsigned();
+            }
+
+            if (!Schema::hasColumn('webinars', 'downloadable')) {
+                $table->boolean('downloadable')->after('support')->default(false);
+            }
         });
     }
 }

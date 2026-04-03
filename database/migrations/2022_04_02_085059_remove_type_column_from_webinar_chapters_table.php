@@ -15,7 +15,9 @@ class RemoveTypeColumnFromWebinarChaptersTable extends Migration
     public function up()
     {
         Schema::table('webinar_chapters', function (Blueprint $table) {
-            DB::statement("ALTER TABLE `webinar_chapters` DROP COLUMN `type`");
+            if (Schema::hasColumn('webinar_chapters', 'type')) {
+                DB::statement("ALTER TABLE `webinar_chapters` DROP COLUMN `type`");
+            }
         });
     }
 }

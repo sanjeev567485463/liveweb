@@ -14,8 +14,13 @@ class AddStatusColumnToPaymentChannelsTable extends Migration
     public function up()
     {
         Schema::table('payment_channels', function (Blueprint $table) {
-            DB::statement("ALTER TABLE `payment_channels` DROP COLUMN `disabled_at`");
-            $table->enum('status', ['active', 'inactive'])->after('class_name');
+            if (Schema::hasColumn('payment_channels', 'disabled_at')) {
+                DB::statement("ALTER TABLE `payment_channels` DROP COLUMN `disabled_at`");
+            }
+
+            if (!Schema::hasColumn('payment_channels', 'status')) {
+                $table->enum('status', ['active', 'inactive'])->after('class_name');
+            }
         });
     }
 }

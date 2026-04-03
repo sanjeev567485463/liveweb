@@ -13,44 +13,65 @@ class CreateOfflineBanksTable extends Migration
      */
     public function up()
     {
-        Schema::create('offline_banks', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('logo');
-            $table->bigInteger('created_at')->unsigned();
-        });
+        if (!Schema::hasTable('offline_banks')) {
+            Schema::create('offline_banks', function (Blueprint $table) {
+                $table->increments('id');
+                $table->string('logo');
+                $table->bigInteger('created_at')->unsigned();
+            });
+        }
 
-        Schema::create('offline_bank_translations', function (Blueprint $table) {
-            $table->increments('id');
-            $table->integer('offline_bank_id')->unsigned();
-            $table->string('locale', 191)->index();
-            $table->string('title');
+        if (!Schema::hasTable('offline_bank_translations')) {
+            Schema::create('offline_bank_translations', function (Blueprint $table) {
+                $table->increments('id');
+                $table->integer('offline_bank_id')->unsigned();
+                $table->string('locale', 191)->index();
+                $table->string('title');
 
-            $table->foreign('offline_bank_id')->on('offline_banks')->references('id')->cascadeOnDelete();
-        });
+                $table->foreign('offline_bank_id')->on('offline_banks')->references('id')->cascadeOnDelete();
+            });
+        }
 
-        Schema::create('offline_bank_specifications', function (Blueprint $table) {
-            $table->increments('id');
-            $table->integer('offline_bank_id')->unsigned();
-            $table->string('value');
+        if (!Schema::hasTable('offline_bank_specifications')) {
+            Schema::create('offline_bank_specifications', function (Blueprint $table) {
+                $table->increments('id');
+                $table->integer('offline_bank_id')->unsigned();
+                $table->string('value');
 
-            $table->foreign('offline_bank_id')->on('offline_banks')->references('id')->cascadeOnDelete();
-        });
+                $table->foreign('offline_bank_id')->on('offline_banks')->references('id')->cascadeOnDelete();
+            });
+        }
 
-        Schema::create('offline_bank_specification_translations', function (Blueprint $table) {
-            $table->increments('id');
-            $table->integer('offline_bank_specification_id')->unsigned();
-            $table->string('locale', 191)->index();
-            $table->string('name');
+        if (!Schema::hasTable('offline_bank_specification_translations')) {
+            Schema::create('offline_bank_specification_translations', function (Blueprint $table) {
+                $table->increments('id');
+                $table->integer('offline_bank_specification_id')->unsigned();
+                $table->string('locale', 191)->index();
+                $table->string('name');
 
-            $table->foreign('offline_bank_specification_id', 'offline_bank_specification_id')->on('offline_bank_specifications')->references('id')->cascadeOnDelete();
-        });
+                $table->foreign('offline_bank_specification_id', 'offline_bank_specification_id')->on('offline_bank_specifications')->references('id')->cascadeOnDelete();
+            });
+        }
 
-        Schema::table('offline_payments',function (Blueprint $table) {
-            \Illuminate\Support\Facades\DB::statement("ALTER TABLE `offline_payments` DROP COLUMN `bank`");
+        $offlineBankForeignKeyExists = \Illuminate\Support\Facades\DB::table('information_schema.TABLE_CONSTRAINTS')
+            ->where('CONSTRAINT_SCHEMA', \Illuminate\Support\Facades\DB::getDatabaseName())
+            ->where('TABLE_NAME', 'offline_payments')
+            ->where('CONSTRAINT_NAME', 'offline_payments_offline_bank_id_foreign')
+            ->where('CONSTRAINT_TYPE', 'FOREIGN KEY')
+            ->exists();
 
-            $table->integer('offline_bank_id')->unsigned()->nullable()->after('amount');
+        Schema::table('offline_payments',function (Blueprint $table) use ($offlineBankForeignKeyExists) {
+            if (Schema::hasColumn('offline_payments', 'bank')) {
+                \Illuminate\Support\Facades\DB::statement("ALTER TABLE `offline_payments` DROP COLUMN `bank`");
+            }
 
-            $table->foreign('offline_bank_id')->on('offline_banks')->references('id')->nullOnDelete();
+            if (!Schema::hasColumn('offline_payments', 'offline_bank_id')) {
+                $table->integer('offline_bank_id')->unsigned()->nullable()->after('amount');
+            }
+
+            if (!$offlineBankForeignKeyExists && Schema::hasColumn('offline_payments', 'offline_bank_id')) {
+                $table->foreign('offline_bank_id')->on('offline_banks')->references('id')->nullOnDelete();
+            }
         });
     }
 

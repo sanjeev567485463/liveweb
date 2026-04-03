@@ -14,11 +14,21 @@ class EditGroupsTable extends Migration
     public function up()
     {
         Schema::table('groups', function (Blueprint $table) {
-            DB::statement("ALTER TABLE `groups` DROP COLUMN `percent`");
+            if (Schema::hasColumn('groups', 'percent')) {
+                DB::statement("ALTER TABLE `groups` DROP COLUMN `percent`");
+            }
 
-            $table->integer('discount')->nullable()->after('name');
-            $table->integer('commission')->nullable()->after('discount');
-            $table->enum('status', ['active', 'inactive'])->default('inactive')->after('commission');
+            if (!Schema::hasColumn('groups', 'discount')) {
+                $table->integer('discount')->nullable()->after('name');
+            }
+
+            if (!Schema::hasColumn('groups', 'commission')) {
+                $table->integer('commission')->nullable()->after('discount');
+            }
+
+            if (!Schema::hasColumn('groups', 'status')) {
+                $table->enum('status', ['active', 'inactive'])->default('inactive')->after('commission');
+            }
         });
     }
 }

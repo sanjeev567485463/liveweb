@@ -14,15 +14,21 @@ return new class extends Migration {
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            DB::statement("ALTER TABLE `users` DROP COLUMN `commission`");
+            if (Schema::hasColumn('users', 'commission')) {
+                DB::statement("ALTER TABLE `users` DROP COLUMN `commission`");
+            }
         });
 
         Schema::table('groups', function (Blueprint $table) {
-            DB::statement("ALTER TABLE `groups` DROP COLUMN `commission`");
+            if (Schema::hasColumn('groups', 'commission')) {
+                DB::statement("ALTER TABLE `groups` DROP COLUMN `commission`");
+            }
         });
 
         Schema::table('products', function (Blueprint $table) {
-            $table->enum('commission_type', ['percent', 'fixed_amount'])->after('tax');
+            if (!Schema::hasColumn('products', 'commission_type')) {
+                $table->enum('commission_type', ['percent', 'fixed_amount'])->after('tax');
+            }
         });
     }
 

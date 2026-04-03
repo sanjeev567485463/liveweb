@@ -14,7 +14,9 @@ class DeleteColumnTypeFromOrdersTable extends Migration
     public function up()
     {
         Schema::table('orders', function (Blueprint $table) {
-            DB::statement("ALTER TABLE `orders` DROP COLUMN `type`");
+            if (Schema::hasColumn('orders', 'type')) {
+                DB::statement("ALTER TABLE `orders` DROP COLUMN `type`");
+            }
         });
     }
 
