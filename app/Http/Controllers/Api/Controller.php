@@ -13,11 +13,23 @@ class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests, ApiResponseBuilderTrait;
 
+    protected array $allowedFileMimeTypes = [
+        'application/pdf',
+        'image/jpeg',
+        'image/png',
+        'video/mp4',
+        'video/x-matroska',
+    ];
+
+    protected array $allowedFileExtensions = ['pdf', 'jpg', 'jpeg', 'png', 'mp4', 'mkv'];
+
     public static $auth;
 
 
     public function uploadFile($file, $destination, $fileName = null, $userId = null, $test = false): string
     {
+        $this->ensureAllowedUpload($file);
+
         $storage = Storage::disk('public');
 
         $path = (!empty($userId) ? '/' . $userId : '') . '/' . $destination;
@@ -35,6 +47,19 @@ class Controller extends BaseController
         $storage->put($path, file_get_contents($file));
 
         return $storage->url($path);
+    }
+
+    protected function ensureAllowedUpload($file): void
+    {
+        $mimeType = strtolower((string) $file->getMimeType());
+        $extension = strtolower((string) $file->getClientOriginalExtension());
+
+        $isAllowed = in_array($mimeType, $this->allowedFileMimeTypes, true)
+            && in_array($extension, $this->allowedFileExtensions, true);
+
+        if (!$isAllowed) {
+            abort(422, 'Only PDF, JPG, JPEG, PNG, MP4, and MKV files are allowed.');
+        }
     }
 
     public function removeFile($path)

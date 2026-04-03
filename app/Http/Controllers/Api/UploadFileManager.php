@@ -38,6 +38,8 @@ class UploadFileManager extends Controller
 
      public function __construct($file,$sub_directory=null)
      {
+         $this->ensureAllowedUpload($file);
+
          $fileName = $file->getClientOriginalName() ;
          $path=$this->path() .'/'.$sub_directory;
          $storage_path= $file->storeAs($path
