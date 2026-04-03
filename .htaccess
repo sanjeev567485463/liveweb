@@ -1,10 +1,21 @@
+Options -Indexes
+
 <IfModule mod_rewrite.c>
     <IfModule mod_negotiation.c>
-        Options -MultiViews -Indexes
+        Options -MultiViews
     </IfModule>
 
     RewriteEngine On
+
+    # Allow certificate/DCV files that hosting providers may place in .well-known.
+    RewriteCond %{REQUEST_URI} !^/\.well-known/
+    RewriteRule (^|/)\. - [F,L]
+
+    # Block direct access to application internals when the project root is public_html.
+    RewriteRule ^(?:app|bootstrap|config|database|resources|routes|storage|tests|vendor)(?:/|$) - [F,L,NC]
+    RewriteRule ^(?:artisan|composer\.(?:json|lock|phar)|package(?:-lock)?\.json|webpack\.mix\.js|vite\.config\.js|phpunit\.xml|firebase-auth\.json|\.env(?:\..*)?)$ - [F,L,NC]
+
     RewriteCond %{REQUEST_URI} !^/public/
+    RewriteCond %{REQUEST_URI} !^/\.well-known/
     RewriteRule ^(.*)$ /public/$1 [L,QSA]
 </IfModule>
-
