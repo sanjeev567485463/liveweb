@@ -18,15 +18,37 @@ use App\Models\Subscribe;
 use App\Models\SubscribeRemind;
 use App\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Schema;
-use Illuminate\Support\Str;
+use InvalidArgumentException;
 
 class CronJobsController extends Controller
 {
+    public const ALLOWED_METHODS = [
+        'sendSessionsReminder',
+        'sendMeetingsReminder',
+        'sendMeetingPackageReminders',
+        'renewSubscriptions',
+        'reminderBeforeExpirationSubscribes',
+        'sendSubscribeReminder',
+        'sendInstallmentReminders',
+        'checkGiftsDate',
+        'sendAbandonedCartReminders',
+        'clearAbandonedCartItems',
+        'sendAttendanceNotifications',
+        'sendEventsReminders',
+    ];
+
     public function index(Request $request, $methodName)
     {
-        return $this->$methodName($request);
+        abort(404);
+    }
+
+    public function runAllowedMethod(string $methodName, ?Request $request = null)
+    {
+        if (!in_array($methodName, self::ALLOWED_METHODS, true) || !method_exists($this, $methodName)) {
+            throw new InvalidArgumentException("Unsupported cron job method [{$methodName}].");
+        }
+
+        return app()->call([$this, $methodName], ['request' => $request ?? new Request()]);
     }
 
     public function sdfds()
