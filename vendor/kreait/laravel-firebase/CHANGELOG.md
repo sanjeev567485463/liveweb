@@ -1,6 +1,21 @@
 # CHANGELOG
 
-## Unreleased
+## 5.10.0 - 2024-11-22
+
+* Added support for PHP 8.4
+
+## 5.9.1 - 2024-06-23
+
+* Revert making the Service provider deferrable. The auto discovery problem is hopefully still fixed because of
+  the change in the latest version of the SDK.
+
+## 5.9.0 - 2024-06-23
+
+* Service Provider Registration is now deferred. This should fix the credentials auto discovery in Laravel's 
+  package discovery stage
+  ([#210](https://github.com/kreait/laravel-firebase/pull/210))
+
+## 5.8.0 - 2024-03-13
 
 * Added support for Laravel 11 
   ([#214](https://github.com/kreait/laravel-firebase/pull/214))

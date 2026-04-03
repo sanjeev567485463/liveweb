@@ -40,7 +40,7 @@ In order to access a Firebase project and its related services using a server SD
 For server-to-server communication this is done with a Service Account.
 
 If you don't already have generated a Service Account, you can do so by following the instructions from the
-official documentation pages at https://firebase.google.com/docs/admin/setup#initialize_the_sdk.
+official documentation pages at https://firebase.google.com/docs/admin/setup#initialize_the_sdk_in_non-google_environments.
 
 Once you have downloaded the Service Account JSON file, you can configure the package by specifying
 environment variables starting with `FIREBASE_` in your `.env` file. Usually, the following are
@@ -124,7 +124,7 @@ can find the currently supported versions and support options in the [SDK's READ
 
 | Version | Initial Release | Supported SDK Versions | Supported Laravel Versions | Status      |
 |---------|-----------------|------------------------|----------------------------|-------------|
-| `5.x`   | 13 Jan 2023     | `^7.0`                 | `^9.0`, `^10.0`            | Active      |
+| `5.x`   | 13 Jan 2023     | `^7.0`                 | `^9.0`, `^10.0`, `^11.0`   | Active      |
 | `4.x`   | 09 Jan 2022     | `^6.0`                 | `^8.0`                     | End of life |
 | `3.x`   | 01 Nov 2020     | `^5.24`                | `^6.0, ^7.0, ^8.0`         | End of life |
 | `2.x`   | 01 Apr 2020     | `^5.0`                 | `^5.8, ^6.0, ^7.0, ^8.0`   | End of life |
