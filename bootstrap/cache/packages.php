@@ -216,13 +216,13 @@
   ),
   'kreait/laravel-firebase' => 
   array (
-    'providers' => 
-    array (
-      0 => 'Kreait\\Laravel\\Firebase\\ServiceProvider',
-    ),
     'aliases' => 
     array (
       'Firebase' => 'Kreait\\Laravel\\Firebase\\Facades\\Firebase',
+    ),
+    'providers' => 
+    array (
+      0 => 'Kreait\\Laravel\\Firebase\\ServiceProvider',
     ),
   ),
   'kyrax324/laravel-ipay88' => 
@@ -230,13 +230,6 @@
     'providers' => 
     array (
       0 => 'IPay88\\IPay88ServiceProvider',
-    ),
-  ),
-  'laravel/sail' => 
-  array (
-    'providers' => 
-    array (
-      0 => 'Laravel\\Sail\\SailServiceProvider',
     ),
   ),
   'laravel/sanctum' => 
@@ -333,13 +326,6 @@
       'PDF' => 'niklasravnsborg\\LaravelPdf\\Facades\\Pdf',
     ),
   ),
-  'nunomaduro/collision' => 
-  array (
-    'providers' => 
-    array (
-      0 => 'NunoMaduro\\Collision\\Adapters\\Laravel\\CollisionServiceProvider',
-    ),
-  ),
   'nunomaduro/termwind' => 
   array (
     'providers' => 
@@ -400,17 +386,6 @@
     'providers' => 
     array (
       0 => 'Spatie\\GoogleCalendar\\GoogleCalendarServiceProvider',
-    ),
-  ),
-  'spatie/laravel-ignition' => 
-  array (
-    'providers' => 
-    array (
-      0 => 'Spatie\\LaravelIgnition\\IgnitionServiceProvider',
-    ),
-    'aliases' => 
-    array (
-      'Flare' => 'Spatie\\LaravelIgnition\\Facades\\Flare',
     ),
   ),
   'ssheduardo/redsys-laravel' => 
