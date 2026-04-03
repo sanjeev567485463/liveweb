@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Astrotomic\Translatable\Contracts\Translatable as TranslatableContract;
 use Astrotomic\Translatable\Translatable;
+use Illuminate\Support\Facades\Schema;
 
 class Setting extends Model implements TranslatableContract
 {
@@ -133,6 +134,14 @@ class Setting extends Model implements TranslatableContract
     // functions
     static function getSetting(&$static, $name, $key = null)
     {
+        if (!Schema::hasTable('settings') || !Schema::hasTable('setting_translations')) {
+            if (!empty($key)) {
+                return '';
+            }
+
+            return [];
+        }
+
         if (!isset($static)) {
             $static = cache()->remember('settings.' . $name, 24 * 60 * 60, function () use ($name) {
                 return self::where('name', $name)->first();
